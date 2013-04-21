@@ -218,9 +218,13 @@ if ( isset( $ini['local']['charset'] ) )
 {
 	$lDbCharset = $ini['local']['charset'];
 }
+elseif ( isset( $local_config['DB_CHARSET'] ) )
+{
+	$lDbCharset = $local_config['DB_CHARSET'];
+}
 else
 {
-	$lDbCharset = 'utf-8';
+	$lDbCharset = 'utf8';
 }
 
 if ( isset( $ini['local']['host'] ) )
@@ -261,8 +265,9 @@ switch( $mode )
 		$source = "ssh -C $sshServer \"mysqldump -u $rDbUser -p'$rDbPass' $rDbName\"";
 		$target = "mysql -u $lDbUser -p'$lDbPass' -D $lDbName";
 		$cmd = "$source | $target";
-		echo "Replacing $lDbName on localhost with $rDbName from $sshServer\n\n";
+		echo "Replacing database: $lDbName on $lDbHost with $rDbName from server: $sshServer\n\n";
 		echo `$cmd`;
+		echo "Database import complete.\n\n";
 		if ( true === $domain_replace )
 		{
 			echo "Searching for $rDomain in the local database and replacing with $lDomain";
@@ -279,4 +284,4 @@ switch( $mode )
 		break;
 }
 
-echo "\n\nTransfer complete.\n\n";
+echo "Database sync complete.\n\n";
