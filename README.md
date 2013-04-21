@@ -1,24 +1,17 @@
-# Search Replace DB
+# Sync mySQL databases between local and remote servers #
 
-This script was made to aid the process of migrating PHP and MySQL based websites. It has additional features for WordPress but works for most other similar CMSes.
+##### (please note that this script does not actually merge data; it simply dumps the contents of one database and imports those contents into another database) #####
 
-If you find a problem let us know in the issues area and if you can improve the code then please fork the repository and send us a pull request :)
+### Documentation coming soon ###
 
-## Usage
+Currently this script will pull a database from your remote server import to your local server, and do a search and replace for the domains that you specify in an .ini configuration file. It will also pull information from local-config.php and dev/staging/production-config.php files, if preset.
 
-1. Migrate all your website files
-2. Upload the script to your web root (or the same folder as wp-config.php)
-3. Browse to the script's URL in your web browser
-4. Follow the on-screen instructions
+#### To do: ####
 
-### CLI script
+* Documentation
+* Backup database transfers to file first instead of direct import?
+* Search and replace function for transferring from local to remote servers
+* Remove posts GUID column from search and replace by default (these usually shouldn't change)
 
-1. Run the CLI script from the command line like so:
-   ```./searchreplacedb2cli.php --host localhost --user root --database test --pass "pass" --charset utf\-8 --search "findMe" --replace "replaceMe"```
-2. use the `--dry-run` flag to do a dry run without searching/replacing
 
-You can use short form arguments too so `--host` becomes `-h` and so on.
 
-## _Note_
-
-If you use some dynamic processing to setup the database definitions in WordPress try using the 'filestream' branch. Let us know if you find any bugs or have any suggestions to improve it.
