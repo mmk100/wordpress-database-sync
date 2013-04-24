@@ -231,33 +231,37 @@ if ( isset( $ini['local']['host'] ) )
 {
 	$lDbHost = $ini['local']['host'];
 }
+elseif ( isset( $local_config['DB_HOST'] ) )
+{
+	$lDbHost = $local_config['DB_HOST'];
+}
 else
 {
 	$lDbHost = '127.0.0.1';
 }
 
-var_dump($sshServer);
-echo " - sshServer\n";
-var_dump($rDbUser);
-echo " - rDbUser\n";
-var_dump($rDbPass);
-echo " - rDbPass\n";
-var_dump($rDbName);
-echo " - rDbName\n";
-var_dump($lDbUser);
-echo " - lDbUser\n";
-var_dump($lDbPass);
-echo " - lDbPass\n";
-var_dump($lDbName);
-echo " - lDbName\n";
-var_dump($lDbCharset);
-echo " - lDbCharset\n";
-var_dump($lDbHost);
-echo " - lDbHost\n";
-var_dump($lDbName);
-echo " - lDbName\n";
-var_dump($remote_server);
-echo " - remote_server\n";
+//var_dump($sshServer);
+//echo " - sshServer\n";
+//var_dump($rDbUser);
+//echo " - rDbUser\n";
+//var_dump($rDbPass);
+//echo " - rDbPass\n";
+//var_dump($rDbName);
+//echo " - rDbName\n";
+//var_dump($lDbUser);
+//echo " - lDbUser\n";
+//var_dump($lDbPass);
+//echo " - lDbPass\n";
+//var_dump($lDbName);
+//echo " - lDbName\n";
+//var_dump($lDbCharset);
+//echo " - lDbCharset\n";
+//var_dump($lDbHost);
+//echo " - lDbHost\n";
+//var_dump($lDbName);
+//echo " - lDbName\n";
+//var_dump($remote_server);
+//echo " - remote_server\n";
 
 switch( $mode )
 {
@@ -268,11 +272,11 @@ switch( $mode )
 		echo "Replacing database: $lDbName on $lDbHost with $rDbName from server: $sshServer\n\n";
 		echo `$cmd`;
 		echo "Database import complete.\n\n";
-		if ( true === $domain_replace )
-		{
-			echo "Searching for $rDomain in the local database and replacing with $lDomain";
-			echo `searchreplacedb2cli.php -h "$lDbHost" -u "$lDbUser" -p "$lDbPass" -d "$lDbName" -c "$lDbCharset" -s "$rDomain" -r "$lDomain"`;
-		}
+		//if ( true === $domain_replace )
+		//{
+		//	echo "Searching for $rDomain in the local database and replacing with $lDomain";
+		//	echo `searchreplacedb2cli.php -h "$lDbHost" -u "$lDbUser" -p "$lDbPass" -d "$lDbName" -c "$lDbCharset" -s "$rDomain" -r "$lDomain"`;
+		//}
 		break;
 
 	case 'push':
