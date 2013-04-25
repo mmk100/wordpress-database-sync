@@ -280,7 +280,7 @@ switch( $mode )
 		break;
 
 	case 'push':
-		$source = "mysqldump -u $lDbUser -p'$lDbPass' -D $lDbName";
+		$source = "mysqldump -u $lDbUser -p'$lDbPass' $lDbName";
 		$target = "ssh -C $sshServer \"mysql -u $rDbUser -p'$rDbPass' $rDbName\"";
 		$cmd = "$source | $target";
 		echo "Replacing $rDbName on $sshServer with $lDbName on localhost\n\n";
