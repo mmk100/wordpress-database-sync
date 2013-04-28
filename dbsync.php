@@ -405,7 +405,7 @@ switch( $mode )
 		
 		execute_or_exit( "$source > ${local_db}.sql; $target < {$local_db}.sql" );
 		
-		echo "Replacing $remote_db on $ssh_server with $local_db on localhost\n\n";
+		echo "Done replacing $remote_db on $ssh_server with $local_db on localhost\n\n";
 		
 		break;
 }
