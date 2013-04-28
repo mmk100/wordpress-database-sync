@@ -102,10 +102,12 @@ echo "replace: ".$rplc."\n\n";
 
 /* Reproduce what's done in Case 3 to test the server before proceeding */
         $connection = mysqli_connect( $host, $user, $pass, $data );
-        if ( ! $connection ) {
+        
+        if ( mysqli_connect_errno( $connection ) ) {
                 $errors[] = mysqli_connect_error( );
                 echo "MySQL Connection Error: ";
                 print_r($errors);
+                exit( 1 );
         }
 
         if ( ! empty( $char ) ) {
