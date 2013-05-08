@@ -9,8 +9,8 @@ Currently this script will pull a database from your remote server import to you
 #### To do: ####
 
 * Documentation
-* Backup database transfers to file first instead of direct import?
-* Search and replace function for transferring from local to remote servers
+* <del>Backup database transfers to file first instead of direct import?</del>
+* <del>Search and replace function for transferring from local to remote servers</del>
 * Remove posts GUID column from search and replace by default (these usually shouldn't change)
 
 
